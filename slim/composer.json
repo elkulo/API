@@ -1,5 +1,5 @@
 {
-    "name": "ash/slim-api",
+    "name": "elkulo/api",
     "description": "A Slim Framework skeleton application for rapid development",
     "keywords": [
         "microframework",
