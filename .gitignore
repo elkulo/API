@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 # Monolog
 */logs/*
 !/logs/README.md
+.phpunit.result.cache
 
 #-------------------------
 # Environment Files

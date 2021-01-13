@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbb9960b8eefbb29a02a8fe5b5d4ca734
+class ComposerStaticInit2b599624c0b47209d169ca06dde020e5
 {
     public static $files = array (
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
@@ -2351,10 +2351,10 @@ class ComposerStaticInitbb9960b8eefbb29a02a8fe5b5d4ca734
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbb9960b8eefbb29a02a8fe5b5d4ca734::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbb9960b8eefbb29a02a8fe5b5d4ca734::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitbb9960b8eefbb29a02a8fe5b5d4ca734::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitbb9960b8eefbb29a02a8fe5b5d4ca734::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2b599624c0b47209d169ca06dde020e5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2b599624c0b47209d169ca06dde020e5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit2b599624c0b47209d169ca06dde020e5::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit2b599624c0b47209d169ca06dde020e5::$classMap;
 
         }, null, ClassLoader::class);
     }
