@@ -43,8 +43,7 @@ $RECYCLE.BIN/
 # PHPUnit Test
 /results/
 /phpunit*.xml
-/.phpunit.*.cache
-.phpunit.result.cache
+.phpunit.*.cache
 
 #-------------------------
 # Environment Files
