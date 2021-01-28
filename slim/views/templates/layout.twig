@@ -2,16 +2,21 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>API Server{% if title is defined %} | {{ title }}{% endif %}</title>
+<meta name='robots' content='noindex,nofollow' />
+<title>{% if title is defined %}{{ title }}{% endif %}API &#124; el.kulo</title>
 {% if description is defined %}
 <meta name="description" content="{{ description }}">
 {% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP|200,400,600&amp;display=swap" rel="stylesheet"/>
 
-	<!-- STYLES -->
-
-	<style {csp-style-nonce}>
+	<style>
+		@keyframes AnimationGradient {
+			0%   { background-position: 0% 50% }
+			50%  { background-position: 100% 50% }
+			100% { background-position: 0% 50% }
+		}
 		* {
 			transition: background-color 300ms ease, color 300ms ease;
 		}
@@ -32,6 +37,21 @@
 			height: 100%;
 		}
 
+		pre > code {
+			overflow: scroll;
+			display: block;
+			background: #f5f5f5;
+			color: #2f6f9f;
+			border: solid 1px #bbb;
+			border-radius: 5px;
+			padding: 0.5rem 0.75rem;
+			font-size: 1.25rem;
+			font-weight: 700;
+			letter-spacing: -0.02em;
+			line-height: 1.2;
+			white-space: nowrap;
+		}
+
 		.site {
 			display: flex;
 			justify-content: center;
@@ -39,39 +59,47 @@
 			flex-direction: column;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(247, 248, 249, 1);
+			background: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
+			background-size: 300% 300%;
+			animation: AnimationGradient 30s ease infinite;
 		}
 
-		header {
+		.site-header {
 			margin: auto;
 		}
 
-		footer {
+		.site-footer {
 			margin-top: auto;
 		}
 
 		.heroe {
+			box-sizing: border-box;
 			margin: 0 auto;
-			max-width: 1100px;
+			max-width: 768px;
 			padding: 5rem 1.75rem 1.75rem;
 		}
 		.heroe h1 {
-			margin: 0;
-			font-size: 9rem;
-			font-weight: 200;
+			margin-top: 0;
+			font-size: 3rem;
+			font-weight: 600;
 			text-align: center;
-			color: #719e40;
+			font-family: "Noto Serif JP";
+			letter-spacing: -0.02em;
+			color: #fff;
 		}
 		.heroe p {
-			margin: 0;
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 			font-weight: 300;
-			color: #999;
+			text-align: center;
+			color: #f5f5f5;
 		}
 
 		.copyrights {
 			padding: .25rem 1.75rem;
 			text-align: center;
+			color: #fff;
+			font-family: "Noto Serif JP";
+			font-weight: 400;
 		}
 	</style>
 </head>
