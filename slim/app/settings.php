@@ -28,7 +28,9 @@ return function (ContainerBuilder $containerBuilder) {
 
     // Defined
     // phpcs:disable
-    defined('STORAGE_JSON') || define('STORAGE_JSON', __DIR__ . '/../' . $_ENV['DB']);
+    defined('API_KEY') || define('API_KEY', md5( date('Ymd').$_ENV['API_SALT'] ));
+    defined('POSTS_DB') || define('POSTS_DB', __DIR__ . '/../' . $_ENV['POSTS_DB']);
+    defined('USERS_DB') || define('USERS_DB', __DIR__ . '/../' . $_ENV['USERS_DB']);
     // phpcs:enable
 
     // Global Settings Object

@@ -11,8 +11,15 @@
 			<h1>API Server</h1>
 
 			<p>The RESTful API with slim framework.</p>
-			
-			<p><pre><code>{{home_url}}/posts</code></pre></p>
+
+			<h2>One-Time Key</h2>
+
+			<p><pre><code>{{api_key}}</code></pre></p>
+
+			<ul>
+				<li><a href="{{home_url}}/users?key={{api_key}}">USER API</a></li>
+				<li><a href="{{home_url}}/posts?key={{api_key}}">POST API</a></li>
+			</ul>
 
 		</div>
 	</header>
@@ -21,7 +28,7 @@
 
 		<div class="copyrights">
 
-			<p>&copy; API &#124; el.kulo.</p>
+			<p>&copy; API &#124; el.kulo</p>
 
 		</div>
 

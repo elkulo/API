@@ -21,24 +21,25 @@ return function (App $app) {
     $app->get('/', function (Request $request, Response $response) use ($app) {
         $twig = $app->getContainer()->get(Twig::class);
         
-        $home_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim( $_SERVER['HTTP_HOST'], '/' );
+        $home_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/');
 
         return $twig->render($response, 'home.twig', [
             'title' => '',
             'description' => '',
             'home_url' => $home_url,
+            'api_key' => API_KEY
         ]);
     });
 
-    /*
-    $app->group('/users', function (Group $group) {
-        $group->get('', ListUsersAction::class);
-        $group->get('/{id}', ViewUserAction::class);
-    });
-    */
+    if (isset($_GET['key']) && API_KEY === htmlspecialchars($_GET['key'], ENT_QUOTES, 'UTF-8')) {
+        $app->group('/users', function (Group $group) {
+            $group->get('', ListUsersAction::class);
+            $group->get('/{id}', ViewUserAction::class);
+        });
 
-    $app->group('/posts', function (Group $group) {
-        $group->get('', ListPostsAction::class);
-        $group->get('/{id}', ViewPostAction::class);
-    });
+        $app->group('/posts', function (Group $group) {
+            $group->get('', ListPostsAction::class);
+            $group->get('/{id}', ViewPostAction::class);
+        });
+    }
 };
