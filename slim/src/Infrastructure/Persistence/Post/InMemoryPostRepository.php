@@ -22,12 +22,13 @@ class InMemoryPostRepository implements PostRepository
      */
     public function __construct(array $posts = null)
     {
-        if (is_readable(STORAGE_JSON)) {
-            $json = file_get_contents(STORAGE_JSON);
+        if (is_readable(POSTS_DB)) {
+            $json = file_get_contents(POSTS_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
             for ($i=1; $i <= count($data); $i++) {
                 if (isset($data[$i - 1])) {
+                    $data[$i - 1]['id'] = (int) $data[$i - 1]['id'];
                     $posts[$i] = new Post($i, $data[$i - 1]);
                 }
             }

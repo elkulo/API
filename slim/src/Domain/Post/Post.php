@@ -51,7 +51,7 @@ class Post implements JsonSerializable
     {
         // $dataにIDがあればそちらを使用
         if (! isset($this->data['id'])) {
-            $this->data['id'] = (string)$this->id;
+            $this->data['id'] = $this->id;
         }
         return $this->data;
     }
