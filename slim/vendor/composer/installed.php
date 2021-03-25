@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9773823649cfbceb8aa627ee67ca09db3494c224',
+    'reference' => 'df9dff1c0789ecd9b01382022d7bcbd2f972cfaa',
     'name' => 'elkulo/api',
   ),
   'versions' => 
@@ -45,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9773823649cfbceb8aa627ee67ca09db3494c224',
+      'reference' => 'df9dff1c0789ecd9b01382022d7bcbd2f972cfaa',
     ),
     'fig/http-message-util' => 
     array (
