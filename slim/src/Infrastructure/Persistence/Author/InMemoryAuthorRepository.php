@@ -22,8 +22,8 @@ class InMemoryAuthorRepository implements AuthorRepository
      */
     public function __construct(array $authors = null)
     {
-        if (is_readable(USERS_DB)) {
-            $json = file_get_contents(USERS_DB);
+        if (is_readable(AUTHOR_DB)) {
+            $json = file_get_contents(AUTHOR_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
             for ($i = 1; $i <= count($data); $i++) {
