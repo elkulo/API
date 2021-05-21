@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Domain\User;
@@ -11,47 +12,39 @@ class UserTest extends TestCase
     public function userProvider()
     {
         return [
-            [1, 'bill.gates', 'Bill', 'Gates'],
-            [2, 'steve.jobs', 'Steve', 'Jobs'],
-            [3, 'mark.zuckerberg', 'Mark', 'Zuckerberg'],
-            [4, 'evan.spiegel', 'Evan', 'Spiegel'],
-            [5, 'jack.dorsey', 'Jack', 'Dorsey'],
+            [1, []],
+            [2, []],
+            [3, []],
+            [4, []],
+            [5, []],
         ];
     }
 
     /**
      * @dataProvider userProvider
      * @param $id
-     * @param $username
-     * @param $firstName
-     * @param $lastName
+     * @param $data
      */
-    public function testGetters($id, $username, $firstName, $lastName)
+    public function testGetters($id, $data)
     {
-        $user = new User($id, $username, $firstName, $lastName);
+        $user = new User($id, $data);
 
         $this->assertEquals($id, $user->getId());
-        $this->assertEquals($username, $user->getUsername());
-        $this->assertEquals($firstName, $user->getFirstName());
-        $this->assertEquals($lastName, $user->getLastName());
+        $this->assertEquals($data, $user->getData());
     }
 
     /**
      * @dataProvider userProvider
      * @param $id
-     * @param $username
-     * @param $firstName
-     * @param $lastName
+     * @param $data
      */
-    public function testJsonSerialize($id, $username, $firstName, $lastName)
+    public function testJsonSerialize($id, $data)
     {
-        $user = new User($id, $username, $firstName, $lastName);
+        $user = new User($id, $data);
 
         $expectedPayload = json_encode([
             'id' => $id,
-            'username' => $username,
-            'firstName' => $firstName,
-            'lastName' => $lastName,
+            'data' => $data,
         ]);
 
         $this->assertEquals($expectedPayload, json_encode($user));

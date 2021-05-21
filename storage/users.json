@@ -1,9 +1,17 @@
 [
   {
     "id": "1",
-    "username": "a.sudo",
+    "username": "el.kulo",
+    "fullName": "A.Sudo",
     "firstName": "A",
     "lastName": "Sudo",
-    "description": "GRAPHIC DESIGN / SITE DESIGN / DTP DESIGN / PHOTOGRAPHER / CODING - HTML5, Sass(SCSS), JavaScript(ES6+), React, Vue, PHP / WordPress THEME & PLUGIN PUBLISHER"
+    "description": "GRAPHIC DESIGN / SITE DESIGN / DTP DESIGN / PHOTOGRAPHER / CODING - HTML5, Sass(SCSS), JavaScript(ES6+), React, Vue, PHP / WordPress THEME & PLUGIN PUBLISHER",
+    "github": "https://github.com/elkulo",
+    "site": [
+      "https://elkulo.github.io/",
+      "https://elkulo.me/",
+      "https://mailer.elkulo.me/",
+      "https://feeder.elkulo.me/"
+    ]
   }
 ]

@@ -28,23 +28,18 @@ class InMemoryUserRepository implements UserRepository
             $data = json_decode($json, true);
             for ($i = 1; $i <= count($data); $i++) {
                 if (isset($data[$i - 1])) {
-                    $users[$i] = new User(
-                        (int) $data[$i - 1]['id'],
-                        $data[$i - 1]['username'],
-                        $data[$i - 1]['firstName'],
-                        $data[$i - 1]['lastName'],
-                        $data[$i - 1]['description']
-                    );
+                    $data[$i - 1]['id'] = (int) $data[$i - 1]['id'];
+                    $users[$i] = new User($i, $data[$i - 1]);
                 }
             }
         }
 
         $this->users = $users ?? [
-            1 => new User(1, 'bill.gates', 'Bill', 'Gates', 'description'),
-            2 => new User(2, 'steve.jobs', 'Steve', 'Jobs', 'description'),
-            3 => new User(3, 'mark.zuckerberg', 'Mark', 'Zuckerberg', 'description'),
-            4 => new User(4, 'evan.spiegel', 'Evan', 'Spiegel', 'description'),
-            5 => new User(5, 'jack.dorsey', 'Jack', 'Dorsey', 'description'),
+            1 => new User(1, []),
+            2 => new User(2, []),
+            3 => new User(3, []),
+            4 => new User(4, []),
+            5 => new User(5, []),
         ];
     }
 

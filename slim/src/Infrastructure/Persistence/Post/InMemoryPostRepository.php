@@ -26,7 +26,7 @@ class InMemoryPostRepository implements PostRepository
             $json = file_get_contents(POSTS_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
-            for ($i=1; $i <= count($data); $i++) {
+            for ($i = 1; $i <= count($data); $i++) {
                 if (isset($data[$i - 1])) {
                     $data[$i - 1]['id'] = (int) $data[$i - 1]['id'];
                     $posts[$i] = new Post($i, $data[$i - 1]);
