@@ -1,20 +1,20 @@
 <?php
 declare(strict_types=1);
 
-use App\Domain\User\UserRepository;
-use App\Infrastructure\Persistence\User\InMemoryUserRepository;
 use DI\ContainerBuilder;
-use App\Domain\Post\PostRepository;
-use App\Infrastructure\Persistence\Post\InMemoryPostRepository;
+use App\Domain\Author\AuthorRepository;
+use App\Infrastructure\Persistence\Author\InMemoryAuthorRepository;
+use App\Domain\Product\ProductRepository;
+use App\Infrastructure\Persistence\Product\InMemoryProductRepository;
 
 return function (ContainerBuilder $containerBuilder) {
-    // Here we map our UserRepository interface to its in memory implementation
+    // Here we map our AuthorRepository interface to its in memory implementation
     $containerBuilder->addDefinitions([
-        UserRepository::class => \DI\autowire(InMemoryUserRepository::class),
+        AuthorRepository::class => \DI\autowire(InMemoryAuthorRepository::class),
     ]);
 
-    // Here we map our PostRepository interface to its in memory implementation
+    // Here we map our ProductRepository interface to its in memory implementation
     $containerBuilder->addDefinitions([
-        PostRepository::class => \DI\autowire(InMemoryPostRepository::class),
+        ProductRepository::class => \DI\autowire(InMemoryProductRepository::class),
     ]);
 };

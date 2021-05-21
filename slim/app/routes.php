@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Application\Actions\User\ListUsersAction;
-use App\Application\Actions\User\ViewUserAction;
-use App\Application\Actions\Post\ListPostsAction;
-use App\Application\Actions\Post\ViewPostAction;
+use App\Application\Actions\Author\ListAuthorsAction;
+use App\Application\Actions\Author\ViewAuthorAction;
+use App\Application\Actions\Product\ListProductsAction;
+use App\Application\Actions\Product\ViewProductAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -32,14 +32,14 @@ return function (App $app) {
     });
 
     if (isset($_GET['key']) && API_KEY === htmlspecialchars($_GET['key'], ENT_QUOTES, 'UTF-8')) {
-        $app->group('/users', function (Group $group) {
-            $group->get('', ListUsersAction::class);
-            $group->get('/{id}', ViewUserAction::class);
+        $app->group('/author', function (Group $group) {
+            $group->get('', ListAuthorsAction::class);
+            $group->get('/{id}', ViewAuthorAction::class);
         });
 
-        $app->group('/posts', function (Group $group) {
-            $group->get('', ListPostsAction::class);
-            $group->get('/{id}', ViewPostAction::class);
+        $app->group('/product', function (Group $group) {
+            $group->get('', ListProductsAction::class);
+            $group->get('/{id}', ViewProductAction::class);
         });
     }
 };
