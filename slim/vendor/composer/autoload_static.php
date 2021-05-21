@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7427b64d2a999df3f957ecff66935808
+class ComposerStaticInit7308d92743d727116b9d37a4a4ccd6cf
 {
     public static $files = array (
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
@@ -297,26 +297,26 @@ class ComposerStaticInit7427b64d2a999df3f957ecff66935808
         'App\\Application\\Actions\\Action' => __DIR__ . '/../..' . '/src/Application/Actions/Action.php',
         'App\\Application\\Actions\\ActionError' => __DIR__ . '/../..' . '/src/Application/Actions/ActionError.php',
         'App\\Application\\Actions\\ActionPayload' => __DIR__ . '/../..' . '/src/Application/Actions/ActionPayload.php',
-        'App\\Application\\Actions\\Post\\ListPostsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/ListPostsAction.php',
-        'App\\Application\\Actions\\Post\\PostAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/PostAction.php',
-        'App\\Application\\Actions\\Post\\ViewPostAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/ViewPostAction.php',
-        'App\\Application\\Actions\\User\\ListUsersAction' => __DIR__ . '/../..' . '/src/Application/Actions/User/ListUsersAction.php',
-        'App\\Application\\Actions\\User\\UserAction' => __DIR__ . '/../..' . '/src/Application/Actions/User/UserAction.php',
-        'App\\Application\\Actions\\User\\ViewUserAction' => __DIR__ . '/../..' . '/src/Application/Actions/User/ViewUserAction.php',
+        'App\\Application\\Actions\\Author\\AuthorAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/AuthorAction.php',
+        'App\\Application\\Actions\\Author\\ListAuthorsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/ListAuthorsAction.php',
+        'App\\Application\\Actions\\Author\\ViewAuthorAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/ViewAuthorAction.php',
+        'App\\Application\\Actions\\Product\\ListProductsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Product/ListProductsAction.php',
+        'App\\Application\\Actions\\Product\\ProductAction' => __DIR__ . '/../..' . '/src/Application/Actions/Product/ProductAction.php',
+        'App\\Application\\Actions\\Product\\ViewProductAction' => __DIR__ . '/../..' . '/src/Application/Actions/Product/ViewProductAction.php',
         'App\\Application\\Handlers\\HttpErrorHandler' => __DIR__ . '/../..' . '/src/Application/Handlers/HttpErrorHandler.php',
         'App\\Application\\Handlers\\ShutdownHandler' => __DIR__ . '/../..' . '/src/Application/Handlers/ShutdownHandler.php',
         'App\\Application\\Middleware\\SessionMiddleware' => __DIR__ . '/../..' . '/src/Application/Middleware/SessionMiddleware.php',
         'App\\Application\\ResponseEmitter\\ResponseEmitter' => __DIR__ . '/../..' . '/src/Application/ResponseEmitter/ResponseEmitter.php',
+        'App\\Domain\\Author\\Author' => __DIR__ . '/../..' . '/src/Domain/Author/Author.php',
+        'App\\Domain\\Author\\AuthorNotFoundException' => __DIR__ . '/../..' . '/src/Domain/Author/AuthorNotFoundException.php',
+        'App\\Domain\\Author\\AuthorRepository' => __DIR__ . '/../..' . '/src/Domain/Author/AuthorRepository.php',
         'App\\Domain\\DomainException\\DomainException' => __DIR__ . '/../..' . '/src/Domain/DomainException/DomainException.php',
         'App\\Domain\\DomainException\\DomainRecordNotFoundException' => __DIR__ . '/../..' . '/src/Domain/DomainException/DomainRecordNotFoundException.php',
-        'App\\Domain\\Post\\Post' => __DIR__ . '/../..' . '/src/Domain/Post/Post.php',
-        'App\\Domain\\Post\\PostNotFoundException' => __DIR__ . '/../..' . '/src/Domain/Post/PostNotFoundException.php',
-        'App\\Domain\\Post\\PostRepository' => __DIR__ . '/../..' . '/src/Domain/Post/PostRepository.php',
-        'App\\Domain\\User\\User' => __DIR__ . '/../..' . '/src/Domain/User/User.php',
-        'App\\Domain\\User\\UserNotFoundException' => __DIR__ . '/../..' . '/src/Domain/User/UserNotFoundException.php',
-        'App\\Domain\\User\\UserRepository' => __DIR__ . '/../..' . '/src/Domain/User/UserRepository.php',
-        'App\\Infrastructure\\Persistence\\Post\\InMemoryPostRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Persistence/Post/InMemoryPostRepository.php',
-        'App\\Infrastructure\\Persistence\\User\\InMemoryUserRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Persistence/User/InMemoryUserRepository.php',
+        'App\\Domain\\Product\\Product' => __DIR__ . '/../..' . '/src/Domain/Product/Product.php',
+        'App\\Domain\\Product\\ProductNotFoundException' => __DIR__ . '/../..' . '/src/Domain/Product/ProductNotFoundException.php',
+        'App\\Domain\\Product\\ProductRepository' => __DIR__ . '/../..' . '/src/Domain/Product/ProductRepository.php',
+        'App\\Infrastructure\\Persistence\\Author\\InMemoryAuthorRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Persistence/Author/InMemoryAuthorRepository.php',
+        'App\\Infrastructure\\Persistence\\Product\\InMemoryProductRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Persistence/Product/InMemoryProductRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'ChromePhp' => __DIR__ . '/..' . '/ccampbell/chromephp/ChromePhp.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -2066,14 +2066,14 @@ class ComposerStaticInit7427b64d2a999df3f957ecff66935808
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Tests\\Application\\Actions\\ActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/ActionTest.php',
-        'Tests\\Application\\Actions\\Post\\ListPostActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/Post/ListPostActionTest.php',
-        'Tests\\Application\\Actions\\Post\\ViewPostActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/Post/ViewPostActionTest.php',
-        'Tests\\Application\\Actions\\User\\ListUserActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/User/ListUserActionTest.php',
-        'Tests\\Application\\Actions\\User\\ViewUserActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/User/ViewUserActionTest.php',
-        'Tests\\Domain\\Post\\PostTest' => __DIR__ . '/../..' . '/tests/Domain/Post/PostTest.php',
-        'Tests\\Domain\\User\\UserTest' => __DIR__ . '/../..' . '/tests/Domain/User/UserTest.php',
-        'Tests\\Infrastructure\\Persistence\\Post\\InMemoryPostRepositoryTest' => __DIR__ . '/../..' . '/tests/Infrastructure/Persistence/Post/InMemoryPostRepositoryTest.php',
-        'Tests\\Infrastructure\\Persistence\\User\\InMemoryUserRepositoryTest' => __DIR__ . '/../..' . '/tests/Infrastructure/Persistence/User/InMemoryUserRepositoryTest.php',
+        'Tests\\Application\\Actions\\Author\\ListAuthorActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/Author/ListAuthorActionTest.php',
+        'Tests\\Application\\Actions\\Author\\ViewAuthorActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/Author/ViewAuthorActionTest.php',
+        'Tests\\Application\\Actions\\Product\\ListProductActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/Product/ListProductActionTest.php',
+        'Tests\\Application\\Actions\\Product\\ViewProductActionTest' => __DIR__ . '/../..' . '/tests/Application/Actions/Product/ViewProductActionTest.php',
+        'Tests\\Domain\\Author\\AuthorTest' => __DIR__ . '/../..' . '/tests/Domain/Author/AuthorTest.php',
+        'Tests\\Domain\\Product\\ProductTest' => __DIR__ . '/../..' . '/tests/Domain/Product/ProductTest.php',
+        'Tests\\Infrastructure\\Persistence\\Author\\InMemoryAuthorRepositoryTest' => __DIR__ . '/../..' . '/tests/Infrastructure/Persistence/Author/InMemoryAuthorRepositoryTest.php',
+        'Tests\\Infrastructure\\Persistence\\Product\\InMemoryProductRepositoryTest' => __DIR__ . '/../..' . '/tests/Infrastructure/Persistence/Product/InMemoryProductRepositoryTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
@@ -2371,10 +2371,10 @@ class ComposerStaticInit7427b64d2a999df3f957ecff66935808
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7427b64d2a999df3f957ecff66935808::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7427b64d2a999df3f957ecff66935808::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit7427b64d2a999df3f957ecff66935808::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit7427b64d2a999df3f957ecff66935808::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7308d92743d727116b9d37a4a4ccd6cf::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7308d92743d727116b9d37a4a4ccd6cf::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7308d92743d727116b9d37a4a4ccd6cf::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit7308d92743d727116b9d37a4a4ccd6cf::$classMap;
 
         }, null, ClassLoader::class);
     }
