@@ -13,39 +13,18 @@ class User implements JsonSerializable
     private $id;
 
     /**
-     * @var string
+     * @var array
      */
-    private $username;
-
-    /**
-     * @var string
-     */
-    private $firstName;
-
-    /**
-     * @var string
-     */
-    private $lastName;
-
-    /**
-     * @var string
-     */
-    private $description;
+    private $data;
 
     /**
      * @param int|null  $id
-     * @param string    $username
-     * @param string    $firstName
-     * @param string    $lastName
-     * @param string    $description
+     * @param array     $data
      */
-    public function __construct(?int $id, string $username, string $firstName, string $lastName, string $description)
+    public function __construct(?int $id, array $data)
     {
         $this->id = $id;
-        $this->username = strtolower($username);
-        $this->firstName = ucfirst($firstName);
-        $this->lastName = ucfirst($lastName);
-        $this->description = ucfirst($description);
+        $this->data = $data;
     }
 
     /**
@@ -57,35 +36,11 @@ class User implements JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getUsername(): string
+    public function getData(): array
     {
-        return $this->username;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstName(): string
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName(): string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
+        return $this->data;
     }
 
     /**
@@ -93,12 +48,10 @@ class User implements JsonSerializable
      */
     public function jsonSerialize()
     {
-        return [
-            'id' => $this->id,
-            'username' => $this->username,
-            'firstName' => $this->firstName,
-            'lastName' => $this->lastName,
-            'description' => $this->description,
-        ];
+        // $dataにIDがあればそちらを使用
+        if (! isset($this->data['id'])) {
+            $this->data['id'] = $this->id;
+        }
+        return $this->data;
     }
 }
