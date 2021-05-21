@@ -22,8 +22,8 @@ class InMemoryProductRepository implements ProductRepository
      */
     public function __construct(array $products = null)
     {
-        if (is_readable(POSTS_DB)) {
-            $json = file_get_contents(POSTS_DB);
+        if (is_readable(PRODUCT_DB)) {
+            $json = file_get_contents(PRODUCT_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
             for ($i = 1; $i <= count($data); $i++) {
