@@ -4,33 +4,25 @@
 <!-- HEADER -->
 <div class="site">
 
-	<header class="site-header">
+	<main class="heroe">
 
-		<div class="heroe">
+		<h1>API Server</h1>
 
-			<h1>API Server</h1>
+		<p class="heroe__description">The RESTful API with slim framework.</p>
 
-			<p>The RESTful API with slim framework.</p>
+		<h2>One-Day Key</h2>
 
-			<h2>One-Time Key</h2>
+		<div class="api-key"><span>{{api_key}}</span></div>
 
-			<p><pre><code>{{api_key}}</code></pre></p>
+		<ul>
+			<li><a href="{{home_url}}/author?key={{api_key}}">Author API</a></li>
+			<li><a href="{{home_url}}/product?key={{api_key}}">Product API</a></li>
+		</ul>
 
-			<ul>
-				<li><a href="{{home_url}}/author?key={{api_key}}">Author API</a></li>
-				<li><a href="{{home_url}}/product?key={{api_key}}">Product API</a></li>
-			</ul>
-
-		</div>
-	</header>
-
+	</main>
 	<footer class="site-footer">
 
-		<div class="copyrights">
-
-			<p>&copy; API &#124; el.kulo</p>
-
-		</div>
+		<div class="copyright">&copy; API &#124; el.kulo</div>
 
 	</footer>
 
