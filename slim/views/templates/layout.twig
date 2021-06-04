@@ -9,7 +9,7 @@
 {% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP|200,400,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet"> 
 <style>
 @keyframes AnimationGradient {
   0% {
@@ -32,7 +32,7 @@
 html,
 body {
   color: rgba(33, 37, 41, 1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 16px;
   margin: 0;
@@ -55,21 +55,34 @@ a:focus {
   text-decoration: underline;
 }
 
-pre > code {
-  overflow: scroll;
-  display: block;
+.api-key {
+  position: relative;
+  overflow-x: scroll;
+  max-width: 310px;
+  height: 2em;
+  margin: auto;
   background: #f1f1f1;
   color: #2f6f9f;
   border: solid 1px #ddd;
   border-radius: 5px;
-  padding: 0.5rem 0.75rem 0.325rem;
-  font-size: 1.25rem;
+}
+
+.api-key span {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.2;
   white-space: nowrap;
+  line-height: 2em;
+  width: 100%;
+  padding: 0 0.75em;
 }
 
 .site {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,58 +94,55 @@ pre > code {
   animation: AnimationGradient 30s ease infinite;
 }
 
-.site-header {
-  margin: auto;
-}
-
 .site-footer {
-  margin-top: auto;
+  position: absolute;
+  left: 0;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 .heroe {
   box-sizing: border-box;
-  margin: 0 auto;
-  max-width: 768px;
-  padding: 5rem 1.75rem 1.75rem;
+  max-width: 420px;
+  width: 100%;
+  padding: 0 1rem 5rem;
 }
 .heroe h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 500;
   text-align: center;
   font-family: "Noto Serif JP";
   letter-spacing: -0.02em;
   color: #fff;
+  margin: 0;
+}
+
+.heroe__description {
+  font-size: 1.325rem;
+  font-weight: 300;
+  text-align: center;
+  color: #f1f1f1;
+  margin-top: 0.5rem;
 }
 
 .heroe h2 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 500;
   text-align: center;
   font-family: "Noto Serif JP";
   letter-spacing: -0.02em;
   color: #fff;
-}
-
-.heroe h2 + p {
-  margin: -0.5rem 0 0;
-}
-
-.heroe p {
-  font-size: 1.25rem;
-  font-weight: 300;
-  text-align: center;
-  color: #d3dceb;
 }
 
 .heroe ul {
   display: flex;
   justify-content: center;
   list-style: none;
-  padding: 0 1em 0 0;
+  padding: 1em 1em 0 0;
 }
 .heroe ul > li {
-  margin: 1rem 1rem 0;
+  margin: 0 1rem;
 }
 .heroe ul > li::before {
   display: inline-block;
@@ -143,12 +153,10 @@ pre > code {
   vertical-align: middle;
 }
 
-.copyrights {
-  padding: 0.25rem 1.75rem;
-  text-align: center;
+.copyright {
   color: #fff;
   font-family: "Noto Serif JP";
-  font-weight: 400;
+  font-weight: 500;
 }
 </style>
 </head>

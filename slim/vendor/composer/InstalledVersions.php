@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '3a81513c8a4d75197c4a33141b6fccd5b8269c7b',
+    'reference' => '56425ee4261bc945f415d68c88de2b903d88eadf',
     'name' => 'elkulo/api',
   ),
   'versions' => 
@@ -71,7 +71,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '3a81513c8a4d75197c4a33141b6fccd5b8269c7b',
+      'reference' => '56425ee4261bc945f415d68c88de2b903d88eadf',
     ),
     'fig/http-message-util' => 
     array (
