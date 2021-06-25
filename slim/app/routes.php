@@ -24,7 +24,7 @@ return function (App $app) {
         $home_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/');
 
         return $twig->render($response, 'home.twig', [
-            'title' => 'API',
+            'title' => isset( $_ENV['SITE_NAME'] )? $_ENV['SITE_NAME']: 'API Server',
             'description' => 'The RESTful API with slim framework.',
             'home_url' => $home_url,
             'api_key' => API_KEY
