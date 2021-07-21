@@ -9,9 +9,9 @@ use Dotenv\Dotenv;
 return function (ContainerBuilder $containerBuilder) {
 
     // Dotenv
-    $env_dir = __DIR__ . '/../.env';
+    $env = __DIR__ . '/../.env';
     try {
-        if (is_readable($env_dir)) {
+        if (is_readable($env)) {
             $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
             $dotenv->load();
         } else {
@@ -25,13 +25,6 @@ return function (ContainerBuilder $containerBuilder) {
     if (isset($_ENV['TIME_ZONE'])) {
         date_default_timezone_set($_ENV['TIME_ZONE']);
     }
-
-    // Defined
-    // phpcs:disable
-    defined('API_KEY') || define('API_KEY', md5( date('Ymd').$_ENV['API_SALT'] ));
-    defined('PRODUCT_DB') || define('PRODUCT_DB', __DIR__ . '/../' . $_ENV['PRODUCT_DB']);
-    defined('AUTHOR_DB') || define('AUTHOR_DB', __DIR__ . '/../' . $_ENV['AUTHOR_DB']);
-    // phpcs:enable
 
     // Global Settings Object
     $containerBuilder->addDefinitions([
@@ -48,6 +41,9 @@ return function (ContainerBuilder $containerBuilder) {
                 'strict_variables' => true,
                 'cache' => __DIR__ . '/../var/cache/twig',
             ],
+            'api.key' => md5(date('Ymd').$_ENV['API_SALT']),
+            'author.src' => __DIR__ . '/../' . $_ENV['AUTHOR_SOURCE'],
+            'product.src' => __DIR__ . '/../' . $_ENV['PRODUCT_SOURCE'],
         ],
     ]);
 };

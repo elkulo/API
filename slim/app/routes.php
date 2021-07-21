@@ -20,18 +20,23 @@ return function (App $app) {
 
     $app->get('/', function (Request $request, Response $response) use ($app) {
         $twig = $app->getContainer()->get(Twig::class);
-        
+
+        $api_key = $app->getContainer()->get('settings')['api.key'];
+
         $home_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/');
 
         return $twig->render($response, 'home.twig', [
-            'title' => isset( $_ENV['SITE_NAME'] )? $_ENV['SITE_NAME']: 'API Server',
+            'title' => isset($_ENV['SITE_NAME'])? $_ENV['SITE_NAME']: 'API Server',
             'description' => 'The RESTful API with slim framework.',
             'home_url' => $home_url,
-            'api_key' => API_KEY
+            'api_key' => $api_key
         ]);
     });
 
-    if (isset($_GET['key']) && API_KEY === htmlspecialchars($_GET['key'], ENT_QUOTES, 'UTF-8')) {
+    // API KEY.
+    $api_key = $app->getContainer()->get('settings')['api.key'];
+
+    if (isset($_GET['key']) && $api_key === htmlspecialchars($_GET['key'], ENT_QUOTES, 'UTF-8')) {
         $app->group('/author', function (Group $group) {
             $group->get('', ListAuthorsAction::class);
             $group->get('/{id}', ViewAuthorAction::class);

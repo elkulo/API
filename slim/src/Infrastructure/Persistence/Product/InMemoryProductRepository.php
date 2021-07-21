@@ -7,6 +7,7 @@ namespace App\Infrastructure\Persistence\Product;
 use App\Domain\Product\Product;
 use App\Domain\Product\ProductNotFoundException;
 use App\Domain\Product\ProductRepository;
+use Psr\Container\ContainerInterface;
 
 class InMemoryProductRepository implements ProductRepository
 {
@@ -19,11 +20,14 @@ class InMemoryProductRepository implements ProductRepository
      * InMemoryProductRepository constructor.
      *
      * @param array|null $products
+     * @param ContainerInterface $container
      */
-    public function __construct(array $products = null)
+    public function __construct(array $products = null, ContainerInterface $container)
     {
-        if (is_readable(PRODUCT_DB)) {
-            $json = file_get_contents(PRODUCT_DB);
+        $src = $container->get('settings')['product.src'];
+
+        if (is_readable($src)) {
+            $json = file_get_contents($src);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
             for ($i = 1; $i <= count($data); $i++) {
