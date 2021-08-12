@@ -313,6 +313,8 @@ class ComposerStaticInit9ba1e25e9ee270e852763e330b45152d
         'App\\Application\\Handlers\\ShutdownHandler' => __DIR__ . '/../..' . '/src/Application/Handlers/ShutdownHandler.php',
         'App\\Application\\Middleware\\SessionMiddleware' => __DIR__ . '/../..' . '/src/Application/Middleware/SessionMiddleware.php',
         'App\\Application\\ResponseEmitter\\ResponseEmitter' => __DIR__ . '/../..' . '/src/Application/ResponseEmitter/ResponseEmitter.php',
+        'App\\Application\\Settings\\Settings' => __DIR__ . '/../..' . '/src/Application/Settings/Settings.php',
+        'App\\Application\\Settings\\SettingsInterface' => __DIR__ . '/../..' . '/src/Application/Settings/SettingsInterface.php',
         'App\\Domain\\Author\\Author' => __DIR__ . '/../..' . '/src/Domain/Author/Author.php',
         'App\\Domain\\Author\\AuthorNotFoundException' => __DIR__ . '/../..' . '/src/Domain/Author/AuthorNotFoundException.php',
         'App\\Domain\\Author\\AuthorRepository' => __DIR__ . '/../..' . '/src/Domain/Author/AuthorRepository.php',

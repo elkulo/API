@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Product;
 
+use App\Application\Settings\SettingsInterface;
 use App\Domain\Product\Product;
 use App\Domain\Product\ProductNotFoundException;
 use App\Domain\Product\ProductRepository;
-use Psr\Container\ContainerInterface;
 
 class InMemoryProductRepository implements ProductRepository
 {
@@ -20,11 +20,11 @@ class InMemoryProductRepository implements ProductRepository
      * InMemoryProductRepository constructor.
      *
      * @param array|null $products
-     * @param ContainerInterface $container
+     * @param SettingsInterface $settings
      */
-    public function __construct(array $products = null, ContainerInterface $container)
+    public function __construct(array $products = null, SettingsInterface $settings)
     {
-        $src = $container->get('settings')['product.src'];
+        $src = $settings->get('product.src');
 
         if (is_readable($src)) {
             $json = file_get_contents($src);

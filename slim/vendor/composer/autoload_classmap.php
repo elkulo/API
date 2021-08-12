@@ -19,6 +19,8 @@ return array(
     'App\\Application\\Handlers\\ShutdownHandler' => $baseDir . '/src/Application/Handlers/ShutdownHandler.php',
     'App\\Application\\Middleware\\SessionMiddleware' => $baseDir . '/src/Application/Middleware/SessionMiddleware.php',
     'App\\Application\\ResponseEmitter\\ResponseEmitter' => $baseDir . '/src/Application/ResponseEmitter/ResponseEmitter.php',
+    'App\\Application\\Settings\\Settings' => $baseDir . '/src/Application/Settings/Settings.php',
+    'App\\Application\\Settings\\SettingsInterface' => $baseDir . '/src/Application/Settings/SettingsInterface.php',
     'App\\Domain\\Author\\Author' => $baseDir . '/src/Domain/Author/Author.php',
     'App\\Domain\\Author\\AuthorNotFoundException' => $baseDir . '/src/Domain/Author/AuthorNotFoundException.php',
     'App\\Domain\\Author\\AuthorRepository' => $baseDir . '/src/Domain/Author/AuthorRepository.php',

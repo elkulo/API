@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Author;
 
+use App\Application\Settings\SettingsInterface;
 use App\Domain\Author\Author;
 use App\Domain\Author\AuthorNotFoundException;
 use App\Domain\Author\AuthorRepository;
-use Psr\Container\ContainerInterface;
 
 class InMemoryAuthorRepository implements AuthorRepository
 {
@@ -20,11 +20,11 @@ class InMemoryAuthorRepository implements AuthorRepository
      * InMemoryAuthorRepository constructor.
      *
      * @param array|null $authors
-     * @param ContainerInterface $container
+     * @param SettingsInterface $settings
      */
-    public function __construct(array $authors = null, ContainerInterface $container)
+    public function __construct(array $authors = null, SettingsInterface $settings)
     {
-        $src = $container->get('settings')['author.src'];
+        $src = $settings->get('author.src');
 
         if (is_readable($src)) {
             $json = file_get_contents($src);
