@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '8c0da2bdfd2f6e26389ec8804061dd87b9baed94',
+        'reference' => '558fc5530e769022759dc482c585eea590ee2060',
         'name' => 'elkulo/api',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '8c0da2bdfd2f6e26389ec8804061dd87b9baed94',
+            'reference' => '558fc5530e769022759dc482c585eea590ee2060',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(

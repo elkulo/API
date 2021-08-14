@@ -8,13 +8,12 @@ use App\Domain\Product\ProductRepository;
 use App\Infrastructure\Persistence\Product\InMemoryProductRepository;
 
 return function (ContainerBuilder $containerBuilder) {
-    // Here we map our AuthorRepository interface to its in memory implementation
     $containerBuilder->addDefinitions([
-        AuthorRepository::class => \DI\autowire(InMemoryAuthorRepository::class),
-    ]);
 
-    // Here we map our ProductRepository interface to its in memory implementation
-    $containerBuilder->addDefinitions([
+        // Here we map our AuthorRepository interface to its in memory implementation
+        AuthorRepository::class => \DI\autowire(InMemoryAuthorRepository::class),
+
+        // Here we map our ProductRepository interface to its in memory implementation
         ProductRepository::class => \DI\autowire(InMemoryProductRepository::class),
     ]);
 };
