@@ -12,6 +12,7 @@ return array(
     'App\\Application\\Actions\\Author\\AuthorAction' => $baseDir . '/src/Application/Actions/Author/AuthorAction.php',
     'App\\Application\\Actions\\Author\\ListAuthorsAction' => $baseDir . '/src/Application/Actions/Author/ListAuthorsAction.php',
     'App\\Application\\Actions\\Author\\ViewAuthorAction' => $baseDir . '/src/Application/Actions/Author/ViewAuthorAction.php',
+    'App\\Application\\Actions\\Home\\HomeAction' => $baseDir . '/src/Application/Actions/Home/HomeAction.php',
     'App\\Application\\Actions\\Product\\ListProductsAction' => $baseDir . '/src/Application/Actions/Product/ListProductsAction.php',
     'App\\Application\\Actions\\Product\\ProductAction' => $baseDir . '/src/Application/Actions/Product/ProductAction.php',
     'App\\Application\\Actions\\Product\\ViewProductAction' => $baseDir . '/src/Application/Actions/Product/ViewProductAction.php',

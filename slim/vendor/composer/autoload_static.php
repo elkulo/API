@@ -306,6 +306,7 @@ class ComposerStaticInit9ba1e25e9ee270e852763e330b45152d
         'App\\Application\\Actions\\Author\\AuthorAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/AuthorAction.php',
         'App\\Application\\Actions\\Author\\ListAuthorsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/ListAuthorsAction.php',
         'App\\Application\\Actions\\Author\\ViewAuthorAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/ViewAuthorAction.php',
+        'App\\Application\\Actions\\Home\\HomeAction' => __DIR__ . '/../..' . '/src/Application/Actions/Home/HomeAction.php',
         'App\\Application\\Actions\\Product\\ListProductsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Product/ListProductsAction.php',
         'App\\Application\\Actions\\Product\\ProductAction' => __DIR__ . '/../..' . '/src/Application/Actions/Product/ProductAction.php',
         'App\\Application\\Actions\\Product\\ViewProductAction' => __DIR__ . '/../..' . '/src/Application/Actions/Product/ViewProductAction.php',

@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '558fc5530e769022759dc482c585eea590ee2060',
+        'reference' => '6b95c2b050f90a7486ef9dd6cc3cf43b38354027',
         'name' => 'elkulo/api',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '558fc5530e769022759dc482c585eea590ee2060',
+            'reference' => '6b95c2b050f90a7486ef9dd6cc3cf43b38354027',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -248,12 +248,12 @@
             'dev_requirement' => true,
         ),
         'phpstan/phpstan' => array(
-            'pretty_version' => '0.12.94',
-            'version' => '0.12.94.0',
+            'pretty_version' => '0.12.95',
+            'version' => '0.12.95.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpstan/phpstan',
             'aliases' => array(),
-            'reference' => '3d0ba4c198a24e3c3fc489f3ec6ac9612c4be5d6',
+            'reference' => '4ffddfe86e85dcc494a47e5f3dcfd1a2dccdce58',
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(
