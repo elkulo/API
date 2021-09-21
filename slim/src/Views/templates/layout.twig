@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
+{% apply spaceless %}
 <head>
-<meta charset="UTF-8">
-<meta name='robots' content='noindex,nofollow' />
-<title>{{ title }}</title>
-{% if description is defined %}
-<meta name="description" content="{{ description }}">
-{% endif %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-{% include 'templates/head.twig' %}
-{% block ContentStyleBlock endblock %}
+  <meta charset="UTF-8">
+  <meta name='robots' content='noindex,nofollow' />
+  <title>{{ title }}</title>
+  {% if description is defined %}
+    <meta name="description" content="{{ description }}">
+  {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+  {% include 'templates/head.twig' %}
+  {% block ContentStyleBlock endblock %}
 </head>
+{% endapply %}
 <body>
 {% block ContentBodyBlock endblock %}
 </body>
