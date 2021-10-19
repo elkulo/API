@@ -13,10 +13,12 @@ return function (ContainerBuilder $containerBuilder) {
         SettingsInterface::class => function () {
             $log_file = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app-' . date("Y-m-d") . '.log';
             return new Settings([
-                'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] : false,
-                'displayErrorDetails' => true, // Should be set to false in production
-                'logError'            => false,
-                'logErrorDetails'     => false,
+                'site.url' => (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/'),
+                'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
+                // Should be set to false in production.
+                'displayErrorDetails' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
+                'logError'            => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'false' : true,
+                'logErrorDetails'     => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'false' : true,
                 'logger' => [
                     'name' => 'slim-app',
                     'path' => $log_file,
@@ -26,6 +28,8 @@ return function (ContainerBuilder $containerBuilder) {
                     'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] : false,
                     'strict_variables' => true,
                     'cache' => __DIR__ . '/../var/cache/twig',
+                    'auto_reload' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
+                    'strict_variables' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 ],
                 'api.key' => md5(date('Ymd').$_ENV['API_SALT']),
                 'author.src' => __DIR__ . '/../' . $_ENV['AUTHOR_SOURCE'],

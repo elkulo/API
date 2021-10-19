@@ -20,7 +20,7 @@ class HomeAction extends Action
     /**
      * @var Twig
      */
-    protected $twig;
+    protected $view;
 
     /**
      * @param LoggerInterface $logger
@@ -31,7 +31,7 @@ class HomeAction extends Action
     {
         parent::__construct($logger);
         $this->settings = $settings;
-        $this->twig = $twig;
+        $this->view = $twig;
     }
 
     /**
@@ -42,22 +42,11 @@ class HomeAction extends Action
 
         $this->logger->info('Home was viewed.');
 
-        $twig = $this->twig;
-        $settings = $this->settings;
-
-        // API KEY.
-        $api_key = $settings->get('api.key');
-
-        // Root.
-        $home_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/');
-
-        $response = $twig->render($this->response, 'home.twig', [
+        return $this->view->render($this->response, 'home.twig', [
             'title' => isset($_ENV['SITE_NAME']) ? $_ENV['SITE_NAME'] : 'API Server',
             'description' => 'The RESTful API with slim framework.',
-            'home_url' => $home_url,
-            'api_key' => $api_key
+            'home_url' => $this->settings->get('site.url'),
+            'api_key' => $this->settings->get('api.key')
         ]);
-
-        return $response;
     }
 }
