@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '98d3eb4c1a6f08f4bfd0dae1fa9695c0a2cca514',
+        'reference' => '3fe5dd15244a6b8f852c71791d3bb23b5a0a6ca7',
         'name' => 'elkulo/api',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '98d3eb4c1a6f08f4bfd0dae1fa9695c0a2cca514',
+            'reference' => '3fe5dd15244a6b8f852c71791d3bb23b5a0a6ca7',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -393,12 +393,12 @@
             'dev_requirement' => false,
         ),
         'psr/log' => array(
-            'pretty_version' => '1.1.4',
-            'version' => '1.1.4.0',
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
-            'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+            'reference' => 'fe5ea303b0887d5caefd3d431c3e61ad47037001',
             'dev_requirement' => false,
         ),
         'psr/log-implementation' => array(
