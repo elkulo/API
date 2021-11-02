@@ -31,8 +31,8 @@ return function (ContainerBuilder $containerBuilder) {
                     'cache' => __DIR__ . '/../var/cache/twig',
                 ],
                 'api.key' => md5(date('Ymd').$_ENV['API_SALT']),
-                'author.src' => __DIR__ . '/../' . $_ENV['AUTHOR_SOURCE'],
-                'product.src' => __DIR__ . '/../' . $_ENV['PRODUCT_SOURCE'],
+                'author.src' => __DIR__ . '/../../' . trim($_ENV['AUTHOR_SOURCE'], '/'),
+                'product.src' => __DIR__ . '/../../' . trim($_ENV['PRODUCT_SOURCE'], '/'),
             ]);
         }
     ]);

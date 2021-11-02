@@ -16,16 +16,10 @@ require __DIR__ . '/../vendor/autoload.php';
 $containerBuilder = new ContainerBuilder();
 
 // Set up Dotenv
-$env = __DIR__ . '/../';
-try {
-	if (is_readable($env . '.env')) {
-		$dotenv = \Dotenv\Dotenv::createImmutable($env);
-		$dotenv->load();
-	} else {
-		throw new Exception('環境設定ファイルがありません');
-	}
-} catch (Exception $e) {
-	exit($e->getMessage());
+if ( file_exists( __DIR__ . '/../../.env' ) ) {
+  \Dotenv\Dotenv::createImmutable( __DIR__ . '/../../' )->load();
+} else {
+  die('環境設定ファイルがありません。');
 }
 
 // Set up Timezone
