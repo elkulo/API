@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '6ca8928000d52019c345868a68b93ea702502a8b',
+        'reference' => '0277971a43813010dfbc601706ae871634705fe4',
         'name' => 'elkulo/api',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '6ca8928000d52019c345868a68b93ea702502a8b',
+            'reference' => '0277971a43813010dfbc601706ae871634705fe4',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -329,12 +329,12 @@
             'dev_requirement' => true,
         ),
         'psr/container' => array(
-            'pretty_version' => '1.1.1',
-            'version' => '1.1.1.0',
+            'pretty_version' => '1.1.2',
+            'version' => '1.1.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/container',
             'aliases' => array(),
-            'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
+            'reference' => '513e0666f7216c7459170d56df27dfcefe1689ea',
             'dev_requirement' => false,
         ),
         'psr/container-implementation' => array(
