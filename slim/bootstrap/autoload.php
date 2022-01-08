@@ -28,9 +28,9 @@ if (isset($_ENV['TIME_ZONE'])) {
 }
 
 // Should be set to true in production
-if (false) {
-	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
-}
+//if (false) {
+//	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
+//}
 
 // Set up settings
 $settings = require __DIR__ . '/../app/settings.php';
