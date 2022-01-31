@@ -305,6 +305,7 @@ class ComposerStaticInit9ba1e25e9ee270e852763e330b45152d
         'App\\Application\\Actions\\Action' => __DIR__ . '/../..' . '/src/Application/Actions/Action.php',
         'App\\Application\\Actions\\ActionError' => __DIR__ . '/../..' . '/src/Application/Actions/ActionError.php',
         'App\\Application\\Actions\\ActionPayload' => __DIR__ . '/../..' . '/src/Application/Actions/ActionPayload.php',
+        'App\\Application\\Actions\\Auth\\AuthAuthentication' => __DIR__ . '/../..' . '/src/Application/Actions/Auth/AuthAuthentication.php',
         'App\\Application\\Actions\\Author\\AuthorAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/AuthorAction.php',
         'App\\Application\\Actions\\Author\\ListAuthorsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/ListAuthorsAction.php',
         'App\\Application\\Actions\\Author\\ViewAuthorAction' => __DIR__ . '/../..' . '/src/Application/Actions/Author/ViewAuthorAction.php',

@@ -9,6 +9,7 @@ return array(
     'App\\Application\\Actions\\Action' => $baseDir . '/src/Application/Actions/Action.php',
     'App\\Application\\Actions\\ActionError' => $baseDir . '/src/Application/Actions/ActionError.php',
     'App\\Application\\Actions\\ActionPayload' => $baseDir . '/src/Application/Actions/ActionPayload.php',
+    'App\\Application\\Actions\\Auth\\AuthAuthentication' => $baseDir . '/src/Application/Actions/Auth/AuthAuthentication.php',
     'App\\Application\\Actions\\Author\\AuthorAction' => $baseDir . '/src/Application/Actions/Author/AuthorAction.php',
     'App\\Application\\Actions\\Author\\ListAuthorsAction' => $baseDir . '/src/Application/Actions/Author/ListAuthorsAction.php',
     'App\\Application\\Actions\\Author\\ViewAuthorAction' => $baseDir . '/src/Application/Actions/Author/ViewAuthorAction.php',
