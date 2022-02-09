@@ -66,6 +66,11 @@
         "phpcs": "phpcs -p --colors --report-width=120 --standard=PSR2 --ignore=*/vendor/* --extensions=php app/ src/ helpers/",
         "phpcbf": "phpcbf -p --standard=PSR2 --ignore=*/vendor/* --extensions=php app/ src/ helpers/",
         "phpmd": "phpmd src text cleancode,codesize,design,unusedcode",
-        "phpstan": "phpstan analyse --memory-limit 256M"
+        "phpstan": "phpstan analyse --memory-limit 256M",
+        "analyse": [
+            "@composer phpstan",
+            "@composer phpcs",
+            "@composer test-version"
+        ]
     }
 }

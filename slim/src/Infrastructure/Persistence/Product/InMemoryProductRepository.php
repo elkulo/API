@@ -30,7 +30,8 @@ class InMemoryProductRepository implements ProductRepository
             $json = file_get_contents($src);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
-            for ($i = 1; $i <= count($data); $i++) {
+            $max = count($data);
+            for ($i = 1; $i <= $max; $i++) {
                 if (isset($data[$i - 1])) {
                     $data[$i - 1]['id'] = (int) $data[$i - 1]['id'];
                     $products[$i] = new Product($i, $data[$i - 1]);
