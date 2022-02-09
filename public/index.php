@@ -1,1 +1,1 @@
-<?php require __DIR__ . '/../slim/bootstrap/autoload.php';
+<?php require_once __DIR__ . '/../slim/bootstrap/autoload.php';

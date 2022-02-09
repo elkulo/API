@@ -16,15 +16,15 @@ require __DIR__ . '/../vendor/autoload.php';
 $containerBuilder = new ContainerBuilder();
 
 // Set up Dotenv
-if ( file_exists( __DIR__ . '/../../.env' ) ) {
-  \Dotenv\Dotenv::createImmutable( __DIR__ . '/../../' )->load();
+if (file_exists(__DIR__ . '/../../.env')) {
+    \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../')->load();
 } else {
-  die('環境設定ファイルがありません。');
+    die('環境設定ファイルがありません。');
 }
 
 // Set up Timezone
 if (isset($_ENV['TIME_ZONE'])) {
-	date_default_timezone_set($_ENV['TIME_ZONE']);
+    date_default_timezone_set($_ENV['TIME_ZONE']);
 }
 
 // Should be set to true in production
