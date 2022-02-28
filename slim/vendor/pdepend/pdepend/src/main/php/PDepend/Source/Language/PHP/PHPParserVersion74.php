@@ -38,11 +38,13 @@
  *
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since 2.3
  */
 
 namespace PDepend\Source\Language\PHP;
 
+use PDepend\Source\AST\ASTClosure;
 use PDepend\Source\AST\ASTFieldDeclaration;
 use PDepend\Source\AST\ASTType;
 use PDepend\Source\Parser\UnexpectedTokenException;
@@ -53,6 +55,7 @@ use PDepend\Source\Tokenizer\Tokens;
  *
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since 2.4
  */
 abstract class PHPParserVersion74 extends PHPParserVersion73
@@ -103,6 +106,9 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
         return $field;
     }
 
+    /**
+     * @return ASTClosure
+     */
     protected function parseLambdaFunctionDeclaration()
     {
         $this->tokenStack->push();
@@ -114,7 +120,7 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
         $closure = $this->builder->buildAstClosure();
         $closure->setReturnsByReference($this->parseOptionalByReference());
         $closure->addChild($this->parseFormalParameters($closure));
-        $closure = $this->parseCallableDeclarationAddition($closure);
+        $this->parseCallableDeclarationAddition($closure);
 
         $closure->addChild(
             $this->buildReturnStatement(
@@ -128,6 +134,7 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
     /**
      * Override PHP 7.3 checkEllipsisInExpressionSupport to stop throwing the
      * parsing exception.
+     *
      * @return void
      */
     protected function checkEllipsisInExpressionSupport()

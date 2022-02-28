@@ -38,6 +38,7 @@
  *
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since 2.3
  */
 
@@ -47,12 +48,11 @@ use PDepend\Source\AST\ASTArguments;
 use PDepend\Source\AST\ASTCallable;
 use PDepend\Source\AST\ASTCatchStatement;
 use PDepend\Source\AST\ASTConstant;
-use PDepend\Source\AST\ASTIdentifier;
 use PDepend\Source\AST\ASTFormalParameter;
+use PDepend\Source\AST\ASTIdentifier;
 use PDepend\Source\AST\ASTMethod;
 use PDepend\Source\AST\ASTNode;
 use PDepend\Source\AST\ASTScalarType;
-use PDepend\Source\AST\ASTType;
 use PDepend\Source\AST\State;
 use PDepend\Source\Parser\ParserException;
 use PDepend\Source\Parser\UnexpectedTokenException;
@@ -63,6 +63,7 @@ use PDepend\Source\Tokenizer\Tokens;
  *
  * @copyright 2008-2017 Manuel Pichler. All rights reserved.
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
  * @since 2.9
  */
 abstract class PHPParserVersion80 extends PHPParserVersion74
@@ -82,9 +83,9 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
      * Will return <b>true</b> if the given <b>$tokenType</b> is a valid class
      * name part.
      *
-     * @param integer $tokenType The type of a parsed token.
+     * @param int $tokenType The type of a parsed token.
      *
-     * @return boolean
+     * @return bool
      */
     protected function isClassName($tokenType)
     {
@@ -127,8 +128,9 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
      * in the base version. In this method you can implement version specific
      * expressions.
      *
-     * @return ASTNode
      * @throws UnexpectedTokenException
+     *
+     * @return ASTNode
      */
     protected function parseOptionalExpressionForVersion()
     {
@@ -139,7 +141,7 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
     /**
      * In this method we implement parsing of PHP 8.0 specific expressions.
      *
-     * @return ASTNode
+     * @return ?ASTNode
      */
     protected function parseExpressionVersion80()
     {
@@ -228,9 +230,6 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         return parent::parseArgumentExpression();
     }
 
-    /**
-     * @return ASTConstant
-     */
     protected function parseConstantArgument(ASTConstant $constant, ASTArguments $arguments)
     {
         if ($this->tokenizer->peek() === Tokens::T_COLON) {
@@ -245,21 +244,6 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         return $constant;
     }
 
-    /**
-     * This method parses a function postfix expression. An object of type
-     * {@link ASTFunctionPostfix} represents any valid php
-     * function call.
-     *
-     * This method will delegate the call to another method that returns a
-     * member primary prefix object when the function postfix expression is
-     * followed by an object operator.
-     *
-     * @param  ASTNode $node This node represents the function
-     *        identifier. An identifier can be a static string, a variable, a
-     *        compound variable or any other valid php function identifier.
-     * @return ASTNode
-     * @throws ParserException
-     */
     protected function parseFunctionPostfix(ASTNode $node)
     {
         if (!($node instanceof ASTIdentifier) || $node->getImageWithoutNamespace() !== 'match') {
@@ -304,9 +288,6 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         return $function;
     }
 
-    /**
-     * @return ASTType
-     */
     protected function parseEndReturnTypeHint()
     {
         return $this->parseTypeHint();
@@ -359,11 +340,6 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         return $types;
     }
 
-    /**
-     * Parses a type hint that is valid in the supported PHP version.
-     *
-     * @return \PDepend\Source\AST\ASTNode
-     */
     protected function parseTypeHint()
     {
         $this->consumeComments();
@@ -395,7 +371,8 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
     /**
      * This method parses assigned variable in catch statement.
      *
-     * @param \PDepend\Source\AST\ASTCatchStatement $stmt The owning catch statement.
+     * @param ASTCatchStatement $stmt The owning catch statement.
+     *
      * @return void
      */
     protected function parseCatchVariable(ASTCatchStatement $stmt)
@@ -405,10 +382,6 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         }
     }
 
-    /**
-     * Trailing commas is allowed in closure use list from PHP 8.0
-     * @return false
-     */
     protected function allowTrailingCommaInClosureUseList()
     {
         return true;
@@ -433,9 +406,10 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
 
     protected function consumeObjectOperatorToken()
     {
-        return $this->consumeToken($this->tokenizer->peek() === Tokens::T_NULLSAFE_OBJECT_OPERATOR
-            ? Tokens::T_NULLSAFE_OBJECT_OPERATOR
-            : Tokens::T_OBJECT_OPERATOR
+        return $this->consumeToken(
+            $this->tokenizer->peek() === Tokens::T_NULLSAFE_OBJECT_OPERATOR
+                ? Tokens::T_NULLSAFE_OBJECT_OPERATOR
+                : Tokens::T_OBJECT_OPERATOR
         );
     }
 

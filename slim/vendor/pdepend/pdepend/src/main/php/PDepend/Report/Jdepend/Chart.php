@@ -42,17 +42,19 @@
 
 namespace PDepend\Report\Jdepend;
 
+use DOMDocument;
+use DOMElement;
 use PDepend\Metrics\Analyzer;
 use PDepend\Metrics\Analyzer\DependencyAnalyzer;
 use PDepend\Report\CodeAwareGenerator;
 use PDepend\Report\FileAwareGenerator;
 use PDepend\Report\NoLogOutputException;
-use PDepend\Source\AST\AbstractASTArtifact;
 use PDepend\Source\AST\ASTArtifactList;
+use PDepend\Source\AST\ASTNamespace;
 use PDepend\Source\ASTVisitor\AbstractASTVisitor;
-use PDepend\Util\Utf8Util;
 use PDepend\Util\FileUtil;
 use PDepend\Util\ImageConvert;
+use PDepend\Util\Utf8Util;
 
 /**
  * Generates a chart with the aggregated metrics.
@@ -72,14 +74,14 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
     /**
      * The context source code.
      *
-     * @var \PDepend\Source\AST\ASTArtifactList<AbstractASTArtifact>
+     * @var ASTArtifactList<ASTNamespace>
      */
     private $code = null;
 
     /**
      * The context analyzer instance.
      *
-     * @var \PDepend\Metrics\Analyzer\DependencyAnalyzer
+     * @var Analyzer\DependencyAnalyzer
      */
     private $analyzer = null;
 
@@ -109,7 +111,8 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
     /**
      * Sets the context code nodes.
      *
-     * @param  \PDepend\Source\AST\ASTArtifactList<AbstractASTArtifact> $artifacts
+     * @param ASTArtifactList<ASTNamespace> $artifacts
+     *
      * @return void
      */
     public function setArtifacts(ASTArtifactList $artifacts)
@@ -121,8 +124,9 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
      * Adds an analyzer to log. If this logger accepts the given analyzer it
      * with return <b>true</b>, otherwise the return value is <b>false</b>.
      *
-     * @param  \PDepend\Metrics\Analyzer $analyzer The analyzer to log.
-     * @return boolean
+     * @param Analyzer $analyzer The analyzer to log.
+     *
+     * @return bool
      */
     public function log(Analyzer $analyzer)
     {
@@ -137,8 +141,9 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
     /**
      * Closes the logger process and writes the output file.
      *
+     * @throws NoLogOutputException If the no log target exists.
+     *
      * @return void
-     * @throws \PDepend\Report\NoLogOutputException If the no log target exists.
      */
     public function close()
     {
@@ -149,7 +154,7 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
 
         $bias = 0.1;
 
-        $svg = new \DOMDocument('1.0', 'UTF-8');
+        $svg = new DOMDocument('1.0', 'UTF-8');
         $svg->loadXML(file_get_contents(dirname(__FILE__) . '/chart.svg'));
 
         $layer = $svg->getElementById('jdepend.layer');
@@ -164,10 +169,10 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
         $legendTemplate->removeAttribute('xml:id');
 
         foreach ($this->getItems() as $item) {
-            if ($item['distance'] < $bias) {
-                $ellipse = $good->cloneNode(true);
-            } else {
-                $ellipse = $bad->cloneNode(true);
+            $element = $item['distance'] < $bias ? $good : $bad;
+            $ellipse = $element->cloneNode(true);
+            if (!$ellipse instanceof DOMElement) {
+                continue;
             }
 
             $a = $item['ratio'] / 15;
@@ -186,10 +191,12 @@ class Chart extends AbstractASTVisitor implements CodeAwareGenerator, FileAwareG
             if ($result && count($found)) {
                 $angle = rand(0, 314) / 100 - 1.57;
                 $legend = $legendTemplate->cloneNode(true);
-                $legend->setAttribute('x', $e + $item['ratio'] * (1 + cos($angle)));
-                $legend->setAttribute('y', $f + $item['ratio'] * (1 + sin($angle)));
-                $legend->nodeValue = $found[1];
-                $legendTemplate->parentNode->appendChild($legend);
+                if ($legend instanceof DOMElement) {
+                    $legend->setAttribute('x', $e + $item['ratio'] * (1 + cos($angle)));
+                    $legend->setAttribute('y', $f + $item['ratio'] * (1 + sin($angle)));
+                    $legend->nodeValue = $found[1];
+                    $legendTemplate->parentNode->appendChild($legend);
+                }
             }
         }
 

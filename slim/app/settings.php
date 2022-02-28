@@ -13,8 +13,6 @@ return function (ContainerBuilder $containerBuilder) {
         SettingsInterface::class => function () {
             $log_file = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app-' . date("Y-m-d") . '.log';
             return new Settings([
-                'site.url' => (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/'),
-                'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 // Should be set to false in production.
                 'displayErrorDetails' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 'logError'            => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'false' : true,
@@ -30,6 +28,10 @@ return function (ContainerBuilder $containerBuilder) {
                     'strict_variables' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                     'cache' => __DIR__ . '/../var/cache/twig',
                 ],
+                'site.name' => isset($_ENV['SITE_NAME']) ? $_ENV['SITE_NAME'] : '',
+                'site.url' => (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/'),
+                'site.timezone' => isset($_ENV['TIME_ZONE']) ? $_ENV['TIME_ZONE'] : 'UTC',
+                'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 'api.key' => md5(date('Ymd').$_ENV['API_SALT']),
                 'author.src' => __DIR__ . '/../../' . trim($_ENV['AUTHOR_SOURCE'], '/'),
                 'product.src' => __DIR__ . '/../../' . trim($_ENV['PRODUCT_SOURCE'], '/'),

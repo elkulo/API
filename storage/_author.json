@@ -2,9 +2,9 @@
   {
     "id": "1",
     "username": "el.kulo",
-    "fullName": "A.Sudo",
-    "firstName": "A",
-    "lastName": "Sudo",
+    "full_name": "A.Sudo",
+    "first_name": "A",
+    "last_name": "Sudo",
     "description": "GRAPHIC DESIGN / SITE DESIGN / DTP DESIGN / PHOTOGRAPHER / CODING - HTML5, Sass(SCSS), JavaScript(ES6+), React, Vue, PHP / WordPress THEME & PLUGIN PUBLISHER",
     "github": "https://github.com/elkulo",
     "site": [

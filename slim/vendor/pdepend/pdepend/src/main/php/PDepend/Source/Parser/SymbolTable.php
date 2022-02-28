@@ -98,8 +98,8 @@ class SymbolTable
     /**
      * Adds a new value to the top most scope.
      *
-     * @param  string $key   The key of this scope value.
-     * @param  mixed  $value A new scope value.
+     * @param string $key   The key of this scope value.
+     * @param mixed  $value A new scope value.
      *
      * @throws NoActiveScopeException
      *
