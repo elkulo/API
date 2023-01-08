@@ -13,6 +13,9 @@
   border: solid 1px #ddd;
   border-radius: 5px;
 }
+.api-key::-webkit-scrollbar {
+  display: none;
+}
 
 .api-key span {
   box-sizing: border-box;
@@ -114,11 +117,11 @@
 
   <main class="heroe">
 
-    <h1><img src="/assets/logo.png" alt="{{ title }}" width="105" height="50" /></h1>
+    <h1><img src="/assets/logo.png" alt="{{ title }}" width="75" /></h1>
 
     <p class="heroe__description">The RESTful API with slim framework.</p>
 
-    <h2>One-Day Key</h2>
+    <h2>One-Time Key</h2>
 
     <div class="api-key"><span>{{api_key}}</span></div>
 
