@@ -42,7 +42,12 @@ class AuthMiddleware implements Middleware
         $response = $handler->handle($request);
 
         $api_key = $this->settings->get('api.key');
-        if ($api_key !== filter_input(INPUT_GET, 'key', FILTER_SANITIZE_ENCODED)) {
+
+        $referer = isset($_SERVER['HTTP_REFERER'])? htmlspecialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES, 'UTF-8'): '';
+
+        if ($api_key !== filter_input(INPUT_GET, 'key', FILTER_SANITIZE_ENCODED)
+            && strpos($referer, $this->settings->get('site.url')) === false
+        ) {
             $this->logger->info('401 Unauthorized.');
             $response = new ResponseFactory();
             $json = json_encode([

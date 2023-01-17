@@ -10,12 +10,12 @@
     "license": "proprietary",
     "minimum-stability": "stable",
     "require": {
-        "php": "^8.0 || ^8.1",
+        "php": "^8.0 || ^8.1 || ^8.2",
         "ext-json": "*",
         "filp/whoops": "^2.14",
         "middlewares/whoops": "^2.0",
         "monolog/monolog": "^2.8",
-        "php-di/php-di": "^6.4",
+        "php-di/php-di": "^7.0",
         "slim/psr7": "^1.6",
         "slim/slim": "^4.11",
         "slim/twig-view": "^3.3",
@@ -63,6 +63,7 @@
         "test": "phpunit",
         "start": "@php -S localhost:3000 -t ../public",
         "test-version": [
+            "phpcs -p --colors --report-width=120 --standard=PHPCompatibility --ignore=*/vendor/* --extensions=php ./ --runtime-set testVersion 8.2-",
             "phpcs -p --colors --report-width=120 --standard=PHPCompatibility --ignore=*/vendor/* --extensions=php ./ --runtime-set testVersion 8.1-",
             "phpcs -p --colors --report-width=120 --standard=PHPCompatibility --ignore=*/vendor/* --extensions=php ./ --runtime-set testVersion 8.0-"
         ],

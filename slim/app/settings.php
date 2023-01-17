@@ -32,7 +32,7 @@ return function (ContainerBuilder $containerBuilder) {
                 'site.url' => (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . rtrim($_SERVER['HTTP_HOST'], '/'),
                 'site.timezone' => isset($_ENV['TIME_ZONE']) ? $_ENV['TIME_ZONE'] : 'UTC',
                 'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
-                'api.key' => md5(date('YmdHi').$_ENV['API_KEY'].$_ENV['API_SALT']),
+                'api.key' => md5(date('YmdHi') . $_ENV['API_KEY'] . $_ENV['API_SALT']),
                 'author.src' => __DIR__ . '/../../' . trim($_ENV['AUTHOR_SOURCE'], '/'),
                 'product.src' => __DIR__ . '/../../' . trim($_ENV['PRODUCT_SOURCE'], '/'),
             ]);

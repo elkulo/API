@@ -15,7 +15,7 @@ class ViewProductAction extends ProductAction
         $productId = (int) $this->resolveArg('id');
         $product = $this->productRepository->findProductOfId($productId);
 
-        $this->logger->info("Product of id `${productId}` was viewed.");
+        $this->logger->info('Product of id ' . $productId . ' was viewed.');
 
         return $this->respondWithData($product);
     }

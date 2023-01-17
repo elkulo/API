@@ -15,7 +15,7 @@ class ViewAuthorAction extends AuthorAction
         $authorId = (int) $this->resolveArg('id');
         $author = $this->authorRepository->findAuthorOfId($authorId);
 
-        $this->logger->info("Author of id `${authorId}` was viewed.");
+        $this->logger->info('Author of id ' . $authorId . ' was viewed.');
 
         return $this->respondWithData($author);
     }

@@ -14,7 +14,7 @@ class ListAuthorsAction extends AuthorAction
     {
         $authors = $this->authorRepository->findAll();
 
-        $this->logger->info("Authors list was viewed.");
+        $this->logger->info('Authors list was viewed.');
 
         return $this->respondWithData($authors);
     }

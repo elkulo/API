@@ -14,7 +14,7 @@ class ListProductsAction extends ProductAction
     {
         $products = $this->productRepository->findAll();
 
-        $this->logger->info("Products list was viewed.");
+        $this->logger->info('Products list was viewed.');
 
         return $this->respondWithData($products);
     }
