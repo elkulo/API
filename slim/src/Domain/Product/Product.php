@@ -45,9 +45,9 @@ class Product implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         // $dataにIDがあればそちらを使用
         if (! isset($this->data['id'])) {
