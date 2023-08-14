@@ -10,16 +10,17 @@ use Tests\TestCase;
 
 class InMemoryAuthorRepositoryTest extends TestCase
 {
-    public function testFindAll()
+    
+    public function testFindAll(InMemoryAuthorRepository $authorRepository)
     {
         $author = new Author(1, []);
 
-        $authorRepository = new InMemoryAuthorRepository([1 => $author]);
+        $authorRepository = $authorRepository;
 
         $this->assertEquals([$author], $authorRepository->findAll());
     }
 
-    public function testFindAllAuthorsByDefault()
+    public function testFindAllAuthorsByDefault(InMemoryAuthorRepository $authorRepository)
     {
         $authors = [
             1 => new Author(1, []),
@@ -29,23 +30,19 @@ class InMemoryAuthorRepositoryTest extends TestCase
             5 => new Author(5, []),
         ];
 
-        $authorRepository = new InMemoryAuthorRepository();
-
         $this->assertEquals(array_values($authors), $authorRepository->findAll());
     }
 
-    public function testFindAuthorOfId()
+    public function testFindAuthorOfId(InMemoryAuthorRepository $authorRepository)
     {
         $author = new Author(1, []);
-
-        $authorRepository = new InMemoryAuthorRepository([1 => $author]);
 
         $this->assertEquals($author, $authorRepository->findAuthorOfId(1));
     }
 
-    public function testFindAuthorOfIdThrowsNotFoundException()
+    public function testFindAuthorOfIdThrowsNotFoundException(InMemoryAuthorRepository $authorRepository)
     {
-        $authorRepository = new InMemoryAuthorRepository([]);
+        $authorRepository = $authorRepository;
         $this->expectException(AuthorNotFoundException::class);
         $authorRepository->findAuthorOfId(1);
     }

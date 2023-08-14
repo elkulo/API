@@ -11,10 +11,6 @@ abstract class AuthorAction extends Action
 {
     protected AuthorRepository $authorRepository;
 
-    /**
-     * @param LoggerInterface $logger
-     * @param AuthorRepository  $authorRepository
-     */
     public function __construct(LoggerInterface $logger, AuthorRepository $authorRepository)
     {
         parent::__construct($logger);

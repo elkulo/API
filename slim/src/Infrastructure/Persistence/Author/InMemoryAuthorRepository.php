@@ -14,16 +14,12 @@ class InMemoryAuthorRepository implements AuthorRepository
     /**
      * @var Author[]
      */
-    private $authors;
+    private array $authors;
 
-    /**
-     * InMemoryAuthorRepository constructor.
-     *
-     * @param array|null $authors
-     * @param SettingsInterface $settings
-     */
-    public function __construct(array $authors = null, SettingsInterface $settings)
+    public function __construct(SettingsInterface $settings)
     {
+        $authors = [];
+
         $src = $settings->get('author.src');
 
         if (is_readable($src)) {
@@ -39,13 +35,7 @@ class InMemoryAuthorRepository implements AuthorRepository
             }
         }
 
-        $this->authors = $authors ?? [
-            1 => new Author(1, []),
-            2 => new Author(2, []),
-            3 => new Author(3, []),
-            4 => new Author(4, []),
-            5 => new Author(5, []),
-        ];
+        $this->authors = $authors;
     }
 
     /**

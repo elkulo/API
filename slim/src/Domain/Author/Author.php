@@ -27,8 +27,7 @@ class Author implements JsonSerializable
         return $this->data;
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize(): array
+    public function jsonSerialize(): mixed
     {
         // $dataにIDがあればそちらを使用
         if (! isset($this->data['id'])) {
