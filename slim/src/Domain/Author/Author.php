@@ -7,46 +7,28 @@ use JsonSerializable;
 
 class Author implements JsonSerializable
 {
-    /**
-     * @var int|null
-     */
-    private $id;
+    private ?int $id;
 
-    /**
-     * @var array
-     */
-    private $data;
+    private array $data;
 
-    /**
-     * @param int|null  $id
-     * @param array     $data
-     */
     public function __construct(?int $id, array $data)
     {
         $this->id = $id;
         $this->data = $data;
     }
 
-    /**
-     * @return int|null
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return array
-     */
     public function getData(): array
     {
         return $this->data;
     }
 
-    /**
-     * @return mixed
-     */
-    public function jsonSerialize(): mixed
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
     {
         // $dataにIDがあればそちらを使用
         if (! isset($this->data['id'])) {

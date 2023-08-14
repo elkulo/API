@@ -9,28 +9,12 @@ use Slim\Exception\HttpInternalServerErrorException;
 
 class ShutdownHandler
 {
-    /**
-     * @var Request
-     */
-    private $request;
+    private Request $request;
 
-    /**
-     * @var HttpErrorHandler
-     */
-    private $errorHandler;
+    private HttpErrorHandler $errorHandler;
 
-    /**
-     * @var bool
-     */
-    private $displayErrorDetails;
+    private bool $displayErrorDetails;
 
-    /**
-     * ShutdownHandler constructor.
-     *
-     * @param Request           $request
-     * @param HttpErrorHandler  $errorHandler
-     * @param bool              $displayErrorDetails
-     */
     public function __construct(
         Request $request,
         HttpErrorHandler $errorHandler,
@@ -44,46 +28,47 @@ class ShutdownHandler
     public function __invoke()
     {
         $error = error_get_last();
-        if ($error) {
-            $errorFile = $error['file'];
-            $errorLine = $error['line'];
-            $errorMessage = $error['message'];
-            $errorType = $error['type'];
-            $message = 'An error while processing your request. Please try again later.';
-
-            if ($this->displayErrorDetails) {
-                switch ($errorType) {
-                    case E_USER_ERROR:
-                        $message = "FATAL ERROR: {$errorMessage}. ";
-                        $message .= " on line {$errorLine} in file {$errorFile}.";
-                        break;
-
-                    case E_USER_WARNING:
-                        $message = "WARNING: {$errorMessage}";
-                        break;
-
-                    case E_USER_NOTICE:
-                        $message = "NOTICE: {$errorMessage}";
-                        break;
-
-                    default:
-                        $message = "ERROR: {$errorMessage}";
-                        $message .= " on line {$errorLine} in file {$errorFile}.";
-                        break;
-                }
-            }
-
-            $exception = new HttpInternalServerErrorException($this->request, $message);
-            $response = $this->errorHandler->__invoke(
-                $this->request,
-                $exception,
-                $this->displayErrorDetails,
-                false,
-                false
-            );
-
-            $responseEmitter = new ResponseEmitter();
-            $responseEmitter->emit($response);
+        if (!$error) {
+            return;
         }
+
+        $message = $this->getErrorMessage($error);
+        $exception = new HttpInternalServerErrorException($this->request, $message);
+        $response = $this->errorHandler->__invoke(
+            $this->request,
+            $exception,
+            $this->displayErrorDetails,
+            false,
+            false,
+        );
+
+        $responseEmitter = new ResponseEmitter();
+        $responseEmitter->emit($response);
+    }
+
+    private function getErrorMessage(array $error): string
+    {
+        if (!$this->displayErrorDetails) {
+            return 'An error while processing your request. Please try again later.';
+        }
+
+        $errorFile = $error['file'];
+        $errorLine = $error['line'];
+        $errorMessage = $error['message'];
+        $errorType = $error['type'];
+
+        if ($errorType === E_USER_ERROR) {
+            return "FATAL ERROR: {$errorMessage}. on line {$errorLine} in file {$errorFile}.";
+        }
+
+        if ($errorType === E_USER_WARNING) {
+            return "WARNING: {$errorMessage}";
+        }
+
+        if ($errorType === E_USER_NOTICE) {
+            return "NOTICE: {$errorMessage}";
+        }
+
+        return "FATAL ERROR: {$errorMessage}. on line {$errorLine} in file {$errorFile}.";
     }
 }

@@ -9,10 +9,7 @@ use Psr\Log\LoggerInterface;
 
 abstract class AuthorAction extends Action
 {
-    /**
-     * @var AuthorRepository
-     */
-    protected $authorRepository;
+    protected AuthorRepository $authorRepository;
 
     /**
      * @param LoggerInterface $logger
