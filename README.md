@@ -1,5 +1,11 @@
-# APIサーバー
+# API サーバー
 
 ## 個人的使用
 
-JAMstackなポートフォリオの連携用 Slim Framework製 APIサーバー
+JAMstack なポートフォリオの連携用 Slim Framework 製 API サーバー
+
+## [1.0.0] - 2023-08-15
+
+### Changed
+
+- PHPバージョン8.1以上をサポート
