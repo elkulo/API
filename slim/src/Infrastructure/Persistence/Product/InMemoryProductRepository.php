@@ -14,16 +14,12 @@ class InMemoryProductRepository implements ProductRepository
     /**
      * @var Product[]
      */
-    private $products;
+    private array $products;
 
-    /**
-     * InMemoryProductRepository constructor.
-     *
-     * @param array|null $products
-     * @param SettingsInterface $settings
-     */
-    public function __construct(array $products = null, SettingsInterface $settings)
+    public function __construct(SettingsInterface $settings)
     {
+        $products = [];
+
         $src = $settings->get('product.src');
 
         if (is_readable($src)) {
@@ -39,13 +35,7 @@ class InMemoryProductRepository implements ProductRepository
             }
         }
 
-        $this->products = $products ?? [
-            1 => new Product(1, []),
-            2 => new Product(2, []),
-            3 => new Product(3, []),
-            4 => new Product(4, []),
-            5 => new Product(5, []),
-        ];
+        $this->products = $products;
     }
 
     /**

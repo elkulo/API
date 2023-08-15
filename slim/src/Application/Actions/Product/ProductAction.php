@@ -9,15 +9,9 @@ use Psr\Log\LoggerInterface;
 
 abstract class ProductAction extends Action
 {
-    /**
-     * @var ProductRepository
-     */
-    protected $productRepository;
 
-    /**
-     * @param LoggerInterface $logger
-     * @param ProductRepository  $productRepository
-     */
+    protected ProductRepository $productRepository;
+
     public function __construct(LoggerInterface $logger, ProductRepository $productRepository)
     {
         parent::__construct($logger);

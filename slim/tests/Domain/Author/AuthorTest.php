@@ -44,7 +44,6 @@ class AuthorTest extends TestCase
 
         $expectedPayload = json_encode([
             'id' => $id,
-            'data' => $data,
         ]);
 
         $this->assertEquals($expectedPayload, json_encode($author));

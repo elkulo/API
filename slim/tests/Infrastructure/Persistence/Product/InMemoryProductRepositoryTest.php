@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Infrastructure\Persistence\Product;
@@ -10,16 +11,14 @@ use Tests\TestCase;
 
 class InMemoryProductRepositoryTest extends TestCase
 {
-    public function testFindAll()
+    public function testFindAll(InMemoryProductRepository $productRepository)
     {
         $product = new Product(1, []);
-
-        $productRepository = new InMemoryProductRepository([1 => $product]);
 
         $this->assertEquals([$product], $productRepository->findAll());
     }
 
-    public function testFindAllProductsByDefault()
+    public function testFindAllProductsByDefault(InMemoryProductRepository $productRepository)
     {
         $products = [
             1 => new Product(1, []),
@@ -29,23 +28,18 @@ class InMemoryProductRepositoryTest extends TestCase
             5 => new Product(5, []),
         ];
 
-        $productRepository = new InMemoryProductRepository();
-
         $this->assertEquals(array_values($products), $productRepository->findAll());
     }
 
-    public function testFindProductOfId()
+    public function testFindProductOfId(InMemoryProductRepository $productRepository)
     {
         $product = new Product(1, []);
-
-        $productRepository = new InMemoryProductRepository([1 => $product]);
 
         $this->assertEquals($product, $productRepository->findProductOfId(1));
     }
 
-    public function testFindProductOfIdThrowsNotFoundException()
+    public function testFindProductOfIdThrowsNotFoundException(InMemoryProductRepository $productRepository)
     {
-        $productRepository = new InMemoryProductRepository([]);
         $this->expectException(ProductNotFoundException::class);
         $productRepository->findProductOfId(1);
     }

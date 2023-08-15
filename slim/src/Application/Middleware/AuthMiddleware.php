@@ -14,20 +14,10 @@ use App\Application\Settings\SettingsInterface;
 class AuthMiddleware implements Middleware
 {
 
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
+    protected LoggerInterface $logger;
 
-    /**
-     * @var SettingsInterface
-     */
-    protected $settings;
+    protected SettingsInterface $settings;
 
-    /**
-     * @param LoggerInterface $logger
-     * @param SettingsInterface $settings
-     */
     public function __construct(LoggerInterface $logger, SettingsInterface $settings)
     {
         $this->logger = $logger;

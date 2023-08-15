@@ -43,7 +43,6 @@ class ProductTest extends TestCase
 
         $expectedPayload = json_encode([
             'id' => $id,
-            'data' => $data,
         ]);
 
         $this->assertEquals($expectedPayload, json_encode($product));
