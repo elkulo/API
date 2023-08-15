@@ -1,11 +1,15 @@
 # API サーバー
 
-## 個人的使用
+## 概要
 
-JAMstack なポートフォリオの連携用 Slim Framework 製 API サーバー
+JAMstack なポートフォリオとの連携用 Slim Framework 製 API サーバー
 
-## [1.0.0] - 2023-08-15
+https://api.elkulo.me/
 
-### Changed
+## 更新履歴
 
-- PHPバージョン8.1以上をサポート
+### [1.0.0] - 2023-08-15
+
+#### Changed
+
+- PHP バージョン 8.1 以上をサポート
