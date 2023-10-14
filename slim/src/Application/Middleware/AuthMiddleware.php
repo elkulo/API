@@ -35,7 +35,7 @@ class AuthMiddleware implements Middleware
 
         $referer = isset($_SERVER['HTTP_REFERER'])? htmlspecialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES, 'UTF-8'): '';
 
-        if (in_array(filter_input(INPUT_GET, 'key', FILTER_SANITIZE_ENCODED), $api_keys)
+        if (!in_array(filter_input(INPUT_GET, 'key', FILTER_SANITIZE_ENCODED), $api_keys)
             && strpos($referer, $this->settings->get('site.url')) === false
         ) {
             $this->logger->info('401 Unauthorized.');
