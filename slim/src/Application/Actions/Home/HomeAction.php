@@ -35,7 +35,7 @@ class HomeAction extends Action
             'title' => isset($_ENV['SITE_NAME']) ? $_ENV['SITE_NAME'] : 'API Server',
             'description' => 'The RESTful API with slim framework.',
             'home_url' => $this->settings->get('site.url'),
-            'api_key' => $this->settings->get('api.key')
+            'api_key' => isset($this->settings->get('api.keys')[0]) ? $this->settings->get('api.keys')[0]: '',
         ]);
     }
 }

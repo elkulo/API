@@ -31,11 +31,11 @@ class AuthMiddleware implements Middleware
     {
         $response = $handler->handle($request);
 
-        $api_key = $this->settings->get('api.key');
+        $api_keys = $this->settings->get('api.keys');
 
         $referer = isset($_SERVER['HTTP_REFERER'])? htmlspecialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES, 'UTF-8'): '';
 
-        if ($api_key !== filter_input(INPUT_GET, 'key', FILTER_SANITIZE_ENCODED)
+        if (in_array(filter_input(INPUT_GET, 'key', FILTER_SANITIZE_ENCODED), $api_keys)
             && strpos($referer, $this->settings->get('site.url')) === false
         ) {
             $this->logger->info('401 Unauthorized.');
