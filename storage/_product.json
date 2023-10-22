@@ -1,16 +1,16 @@
 [
   {
     "id": "1",
-    "updated": "2020.03.29",
+    "date": "2020-03-29T11:00:00+09:00",
     "title": "No.01",
     "category": ["WEB", "DTP"],
     "tag": ["ライトモード", "1カラム", "トップ画像スライド"],
+    "link": "https://sp01.mdiv.jp/",
+    "content": "管理画面からメインカラー、アクセントカラー、ヘッダー画像等変更できます。",
     "attachment": [
       "https://api.elkulo.me/media/1/m1.jpg",
       "https://api.elkulo.me/media/1/m2.jpg",
       "https://api.elkulo.me/media/1/m3.jpg"
-    ],
-    "link": "https://sp01.mdiv.jp/",
-    "content": "管理画面からメインカラー、アクセントカラー、ヘッダー画像等変更できます。"
+    ]
   }
 ]
