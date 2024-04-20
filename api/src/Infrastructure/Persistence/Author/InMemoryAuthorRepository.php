@@ -29,7 +29,6 @@ class InMemoryAuthorRepository implements AuthorRepository
             $max = count($data);
             for ($i = 1; $i <= $max; $i++) {
                 if (isset($data[$i - 1])) {
-                    $data[$i - 1]['id'] = (int) $data[$i - 1]['id'];
                     $authors[$i] = new Author($i, $data[$i - 1]);
                 }
             }

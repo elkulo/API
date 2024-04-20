@@ -32,7 +32,7 @@ class HomeAction extends Action
         $this->logger->info('Home was viewed.');
 
         return $this->view->render($this->response, 'home.twig', [
-            'title' => isset($_ENV['SITE_NAME']) ? $_ENV['SITE_NAME'] : 'API Server',
+            'title' => $this->settings->get('site.name'),
             'description' => 'The RESTful API with slim framework.',
             'home_url' => $this->settings->get('site.url'),
             'api_key' => isset($this->settings->get('api.keys')[0]) ? $this->settings->get('api.keys')[0]: '',

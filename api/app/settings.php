@@ -11,7 +11,7 @@ return function (ContainerBuilder $containerBuilder) {
     // Global Settings Object
     $containerBuilder->addDefinitions([
         SettingsInterface::class => function () {
-            $log_file = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app-' . date("Y-m-d") . '.log';
+            $log_file = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app-' . date('Y-m-d') . '.log';
             return new Settings([
                 // Should be set to false in production.
                 'displayErrorDetails' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
@@ -34,10 +34,13 @@ return function (ContainerBuilder $containerBuilder) {
                 'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 'api.keys' => [
                     md5(date('YmdHi') . $_ENV['API_KEY'] . $_ENV['API_SALT']),
-                    md5(( date('YmdHi') - 1 ) . $_ENV['API_KEY'] . $_ENV['API_SALT']),
+                    md5((date('YmdHi') - 1) . $_ENV['API_KEY'] . $_ENV['API_SALT']),
                 ],
                 'author.src' => __DIR__ . '/../../' . trim($_ENV['AUTHOR_SOURCE'], '/'),
                 'product.src' => __DIR__ . '/../../' . trim($_ENV['PRODUCT_SOURCE'], '/'),
+                'bluesky.username' => isset($_ENV['BLUESKY_USERNAME']) ? $_ENV['BLUESKY_USERNAME'] : '',
+                'bluesky.password' => isset($_ENV['BLUESKY_PASSWORD']) ? $_ENV['BLUESKY_PASSWORD'] : '',
+                'bluesky.theme' => 'dark',
             ]);
         }
     ]);

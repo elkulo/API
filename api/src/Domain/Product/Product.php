@@ -15,6 +15,13 @@ class Product implements JsonSerializable
     public function __construct(?int $id, array $data)
     {
         $this->id = $id;
+        $data['id'] = $id;
+
+        // IDを付与.
+        if (isset($data['id'])) {
+            $this->id = (int) $id;
+            $data['id'] = (int) $data['id'];
+        }
         $this->data = $data;
     }
 
@@ -30,10 +37,6 @@ class Product implements JsonSerializable
 
     public function jsonSerialize(): mixed
     {
-        // $dataにIDがあればそちらを使用
-        if (! isset($this->data['id'])) {
-            $this->data['id'] = $this->id;
-        }
         return $this->data;
     }
 }

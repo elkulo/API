@@ -6,6 +6,9 @@ use App\Application\Actions\Author\ListAuthorsAction;
 use App\Application\Actions\Author\ViewAuthorAction;
 use App\Application\Actions\Product\ListProductsAction;
 use App\Application\Actions\Product\ViewProductAction;
+use App\Application\Actions\Bluesky\ListBlueskysAction;
+use App\Application\Actions\Bluesky\UserBlueskysAction;
+use App\Application\Actions\Bluesky\ViewBlueskyAction;
 use App\Application\Middleware\AuthMiddleware as Auth;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -31,5 +34,12 @@ return function (App $app) {
     $app->group('/product', function (Group $group) {
         $group->get('', ListProductsAction::class);
         $group->get('/{id}', ViewProductAction::class);
+    })->add(Auth::class);
+
+    // Bluesky API
+    $app->group('/bluesky', function (Group $group) {
+        $group->get('', ListBlueskysAction::class);
+        $group->get('/user', UserBlueskysAction::class);
+        $group->get('/{id}', ViewBlueskyAction::class);
     })->add(Auth::class);
 };

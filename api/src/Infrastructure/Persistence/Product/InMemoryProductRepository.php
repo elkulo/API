@@ -29,7 +29,6 @@ class InMemoryProductRepository implements ProductRepository
             $max = count($data);
             for ($i = 1; $i <= $max; $i++) {
                 if (isset($data[$i - 1])) {
-                    $data[$i - 1]['id'] = (int) $data[$i - 1]['id'];
                     $products[$i] = new Product($i, $data[$i - 1]);
                 }
             }

@@ -32,15 +32,17 @@
 }
 
 .site {
+  box-sizing: border-box;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100%;
-  background: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
-  background-size: 300% 300%;
-  animation: AnimationGradient 30s ease infinite;
+  padding: 3rem 0;
+  background: linear-gradient(230deg, #c83667, #a24bcf, #4b79cf, #4bc5cf);
+  background-size: 600% 600%;
+  animation: AnimationGradient 60s ease-in-out infinite alternate;
 }
 
 .site-footer {
@@ -85,13 +87,28 @@
 }
 
 .heroe ul {
-  display: flex;
-  justify-content: center;
+  box-sizing: border-box;
   list-style: none;
-  padding: 1em 1em 0 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem auto;
+  padding: 1rem 0;
+  width: max-content;
+  max-width: 100%;
+  font-size: 1.125rem;
+}
+@media screen and (min-width: 400px) {
+  .heroe ul {
+    flex-direction: row;
+    font-size: 1rem;
+  }
 }
 .heroe ul > li {
-  margin: 0 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 1em 0 0;
 }
 .heroe ul > li::before {
   display: inline-block;
@@ -128,6 +145,7 @@
     <ul>
       <li><a href="{{home_url}}/author">Author API</a></li>
       <li><a href="{{home_url}}/product">Product API</a></li>
+      <li><a href="{{home_url}}/bluesky">Bluesky API</a></li>
     </ul>
 
   </main>

@@ -1,12 +1,14 @@
 [
   {
     "id": "1",
-    "username": "el.kulo",
     "full_name": "A.Sudo",
     "first_name": "A",
     "last_name": "Sudo",
+    "nickname": "el.kulo",
+    "profession": "FRONT-END DEVELOPER & DESIGNER.",
     "description": "GRAPHIC DESIGN / SITE DESIGN / DTP DESIGN / PHOTOGRAPHER / CODING - HTML5, Sass(SCSS), JavaScript(ES6+), React, Vue, PHP / WordPress THEME & PLUGIN PUBLISHER",
     "github": "https://github.com/elkulo",
+    "bluesky": "https://bsky.app/profile/l96.bsky.social",
     "site": [
       "https://elkulo.github.io/",
       "https://elkulo.me/",
